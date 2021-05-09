@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-private xmlns="http://www.netbeans.org/ns/project-private/1">
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
+    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+        <group>
+            <file>file:/home/duyenthai/NetBeansProjects/QuanLySoTaySV/conf/config.properties</file>
+            <file>file:/home/duyenthai/NetBeansProjects/QuanLySoTaySV/src/com/haui/entities/KetQua.java</file>
+            <file>file:/home/duyenthai/NetBeansProjects/QuanLySoTaySV/src/com/haui/entities/Khoa.java</file>
+            <file>file:/home/duyenthai/NetBeansProjects/QuanLySoTaySV/src/com/haui/entities/SinhVien.java</file>
+            <file>file:/home/duyenthai/NetBeansProjects/QuanLySoTaySV/src/com/haui/entities/MonHoc.java</file>
+            <file>file:/home/duyenthai/NetBeansProjects/QuanLySoTaySV/src/com/haui/dao/DBConfiguration.java</file>
+            <file>file:/home/duyenthai/NetBeansProjects/QuanLySoTaySV/src/com/haui/dao/DerbyUtil.java</file>
+            <file>file:/home/duyenthai/NetBeansProjects/QuanLySoTaySV/src/com/haui/entities/Lop.java</file>
+            <file>file:/home/duyenthai/NetBeansProjects/QuanLySoTaySV/src/com/haui/entities/GiangVien.java</file>
+        </group>
+    </open-files>
+</project-private>
