@@ -9,30 +9,28 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.List;
+import java.util.Map;
 
 /**
  *
  * @author duyenthai
  */
-public class BaseDAO {
+public interface BaseDAO<T> {
+    public List<T> getAll(Connection connection);
 
-    private static final DerbyUtil DERBY_UTIL = new DerbyUtil.Builder().build();
+    public T getWithId(String id, Connection connection);
 
-    private static List getAllDepartment() {
-        String sql = "select *from KHOA";
-        try {
-            Connection connection = DERBY_UTIL.getConnection();
-            if (connection != null) {
-                Statement statement = connection.createStatement();
-                ResultSet resultSet = statement.executeQuery(sql);
-                while(resultSet.next()){
-                    System.out.println("id:" + resultSet.getString("ma_khoa") + "\tname: " + resultSet.getString("ten_khoa"));
-                }
-            }
-        } catch (Exception ex) {
-            System.err.println("Query error: " + ex);
-        }
+    public boolean save(T object, Connection connection);
 
-        return null;
-    }
+    public boolean update(T oldValue, T newValue, Connection connection);
+
+    public boolean update(String id, T newValue, Connection connection);
+
+    public boolean delete(String id, Connection connection);
+
+    public boolean delete(T object, Connection connection);
+
+    public boolean executeQuery(String query, Connection connection);
+
+    public boolean change(Map<String, String> map, Connection connection);
 }
