@@ -6,11 +6,11 @@
 package com.haui.entities;
 
 /**
- *
  * @author duyenthai
  */
 public class HocPhan {
 
+    private String maHP;
     private String maMH;
     private String maGV;
     private long ngayBD;
@@ -21,9 +21,18 @@ public class HocPhan {
     public HocPhan() {
     }
 
-    public HocPhan(String maMH, String maGV) {
+    public HocPhan(String maHP, String maMH, String maGV) {
+        this.maHP = maHP;
         this.maMH = maMH;
         this.maGV = maGV;
+    }
+
+    public String getMaHP() {
+        return maHP;
+    }
+
+    public void setMaHP(String maHP) {
+        this.maHP = maHP;
     }
 
     public String getMaMH() {
@@ -76,7 +85,6 @@ public class HocPhan {
 
     @Override
     public String toString() {
-        return "HocPhan{" + "maMH=" + maMH + ", maGV=" + maGV + ", ngayBD=" + ngayBD + ", ngayKT=" + ngayKT + ", soTietHoc=" + soTietHoc + ", tietBD=" + tietBD + '}';
+        return "HocPhan{" + "maHP=" + maHP + ", maMH=" + maMH + ", maGV=" + maGV + ", ngayBD=" + ngayBD + ", ngayKT=" + ngayKT + ", soTietHoc=" + soTietHoc + ", tietBD=" + tietBD + '}';
     }
-
 }
