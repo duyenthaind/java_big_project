@@ -17,7 +17,7 @@ public class HocPhan {
     private long ngayKT;
     private int soTietHoc;
     private String thoiGianHoc;
-    private double hocPhi;
+    private float hocPhi;
 
     public HocPhan() {
     }
@@ -88,7 +88,7 @@ public class HocPhan {
         return hocPhi;
     }
 
-    public void setHocPhi(double hocPhi) {
+    public void setHocPhi(float hocPhi) {
         this.hocPhi = hocPhi;
     }
 
