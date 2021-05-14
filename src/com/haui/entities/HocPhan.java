@@ -16,7 +16,8 @@ public class HocPhan {
     private long ngayBD;
     private long ngayKT;
     private int soTietHoc;
-    private int tietBD;
+    private String thoiGianHoc;
+    private double hocPhi;
 
     public HocPhan() {
     }
@@ -75,16 +76,24 @@ public class HocPhan {
         this.soTietHoc = soTietHoc;
     }
 
-    public int getTietBD() {
-        return tietBD;
+    public String getThoiGianHoc() {
+        return thoiGianHoc;
     }
 
-    public void setTietBD(int tietBD) {
-        this.tietBD = tietBD;
+    public void setThoiGianHoc(String thoiGianHoc) {
+        this.thoiGianHoc = thoiGianHoc;
+    }
+
+    public double getHocPhi() {
+        return hocPhi;
+    }
+
+    public void setHocPhi(double hocPhi) {
+        this.hocPhi = hocPhi;
     }
 
     @Override
     public String toString() {
-        return "HocPhan{" + "maHP=" + maHP + ", maMH=" + maMH + ", maGV=" + maGV + ", ngayBD=" + ngayBD + ", ngayKT=" + ngayKT + ", soTietHoc=" + soTietHoc + ", tietBD=" + tietBD + '}';
+        return "HocPhan{maHP='" + maHP + ", maMH='" + maMH + ", maGV='" + maGV + ", ngayBD=" + ngayBD + ", ngayKT=" + ngayKT + ", soTietHoc=" + soTietHoc + ", thoiGianHoc='" + thoiGianHoc + ", hocPhi=" + hocPhi + '}';
     }
 }
