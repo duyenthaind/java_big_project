@@ -5,6 +5,10 @@ package com.haui.cache;
  */
 public class UserManager {
     private static User user;
+
+    private UserManager(){
+    }
+
     public static UserManager instance(){
         return new UserManager();
     }

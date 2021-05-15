@@ -9,10 +9,7 @@ import javax.xml.transform.Result;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 
 /**
  * @author duyenthai
@@ -20,13 +17,24 @@ import java.util.Set;
 public class ReportDAO {
     private String userId;
     private CustomStudent customStudent;
-    private SinhVien user;
     private List<KetQua> listResults;
     private Connection connection;
 
     private static final String QUERY_USER = "select *from sinhvien where masv = ?";
     private static final String QUERY_RESULT = "select *from ketqua where maSV = ?";
     private static final String QUERY_DEPARTMENT = "select tenkhoa from khoa where makhoa = (select makhoa from lop where malop = ?)";
+
+    public String getUserId() {
+        return userId;
+    }
+
+    public CustomStudent getCustomStudent() {
+        return customStudent;
+    }
+
+    public List<KetQua> getListResults() {
+        return listResults;
+    }
 
     public ReportDAO() {
         try {
@@ -56,6 +64,19 @@ public class ReportDAO {
         public String getDepartment() {
             return department;
         }
+    }
+
+    public boolean fetchResult(){
+        boolean result = false;
+        try{
+            this.customStudent = getInfo();
+            this.listResults = getFinalResults();
+            result = true;
+        } catch(Exception ex){
+            System.err.println("Fetch result error, trace: " + ex.toString());
+            ex.printStackTrace();
+        }
+        return result;
     }
 
     private List<KetQua> getFinalResults() {

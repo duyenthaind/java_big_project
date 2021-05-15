@@ -42,6 +42,7 @@ public class DBConfiguration {
             }
         } catch (IOException ex) {
             System.err.println("Get properties error" + ex);
+            ex.printStackTrace();
         }
     }
     

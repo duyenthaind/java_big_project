@@ -38,6 +38,7 @@ public class DerbyUtil {
                 connection = DriverManager.getConnection(DBConfiguration.DB_URL, DBConfiguration.getDBProperties());
             } catch (Exception ex) {
                 System.err.println("Connection error: " + ex);
+                ex.printStackTrace();
             }
         }
         
