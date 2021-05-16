@@ -1,6 +1,7 @@
-package com.haui.dao;
+package com.haui.thaind;
 
 import com.haui.cache.UserManager;
+import com.haui.dao.DerbyUtil;
 import com.haui.entities.KetQua;
 import com.haui.entities.Khoa;
 import com.haui.entities.MonHoc;
@@ -27,8 +28,9 @@ public class ReportDAO {
 
     private static final String QUERY_USER = "select *from sinhvien where masv = ?";
     private static final String QUERY_RESULT = "select *from ketqua where maSV = ?";
-    private static final String QUERY_DEPARTMENT = "select tenkhoa from khoa where makhoa = (select makhoa from lop where malop = ?)";
-    private static final String QUERY_SUBJECT = "select h.mahp, m.* from hocphan h join monhoc m on h.mamh = m.mamh where h.masv = ?";
+    private static final String QUERY_DEPARTMENT = "select * from khoa where makhoa = (select makhoa from lop where malop = ?)";
+    private static final String QUERY_SUBJECT = "select h.mahp, m.* from hocphan h join monhoc m on h.mamh = m.mamh " +
+            "join ketqua k on h.mahp = k.mahp where k.masv = ?";
 
     public String getUserId() {
         return userId;
@@ -60,6 +62,7 @@ public class ReportDAO {
 
     public ReportDAO() {
         try {
+//            UserManager.init("sv01");
             if (UserManager.instance().getUserName() != null || !UserManager.instance().getUserName().equals("")) {
                 userId = UserManager.instance().getUserName();
                 connection = new DerbyUtil.Builder().build().getConnection();
@@ -81,7 +84,7 @@ public class ReportDAO {
                 totalCredits = sum;
             }
             if (totalCredits > 0) {
-                Double sum = listResults.stream().map(x -> x.getDiem()).reduce(0.0, (a, b) -> a + b);
+                Double sum = listResults.stream().map(x -> x.getDiem() * mapSubject.get(x.getMaHP()).getSoTinChi()).reduce(0.0, (a, b) -> a + b);
                 avgPoints = sum / totalCredits;
             }
             result = true;
@@ -103,7 +106,7 @@ public class ReportDAO {
                 rs.setMaSV(resultSet.getString("masv"));
                 rs.setMaHP(resultSet.getString("mahp"));
                 rs.setDiem(resultSet.getDouble("diem"));
-                if (map.containsKey(rs.getMaSV())) {
+                if (!map.containsKey(rs.getMaSV())) {
                     map.put(rs.getMaSV(), rs);
                 } else {
                     if (map.get(rs.getMaSV()).getDiem() < rs.getDiem()) {
@@ -111,7 +114,7 @@ public class ReportDAO {
                     }
                 }
             }
-            return (List<KetQua>) map.values();
+            return new ArrayList<KetQua> (map.values()) ;
         } catch (Exception ex) {
             System.err.println("Get all result error, trace: " + ex);
             ex.printStackTrace();

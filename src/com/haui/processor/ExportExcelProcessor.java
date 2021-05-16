@@ -2,7 +2,7 @@ package com.haui.processor;
 
 import com.haui.common.Config;
 import com.haui.common.Ranking;
-import com.haui.dao.ReportDAO;
+import com.haui.thaind.ReportDAO;
 import com.haui.entities.KetQua;
 import com.haui.entities.Khoa;
 import com.haui.entities.MonHoc;
@@ -11,6 +11,7 @@ import org.apache.poi.ss.usermodel.*;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 import java.io.FileOutputStream;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
@@ -23,6 +24,10 @@ import java.util.concurrent.Executors;
  */
 public class ExportExcelProcessor {
     private static final ExecutorService EXECUTOR_SERVICE = Executors.newFixedThreadPool(10);
+
+    public static void main(String[] args) {
+        pubjob();
+    }
 
     public static void pubjob() {
         Thread t = createJob();
@@ -50,6 +55,7 @@ public class ExportExcelProcessor {
         try {
             Config.loadConfig();
             ReportDAO dao = new ReportDAO();
+            dao.fetchResult();
             UUID uuid = UUID.randomUUID();
             String exportFileName = "/Export_file_" + uuid.toString() + ".xlsx";
             String fullExportFileName = Config.BASE_DIR_EXPORT + exportFileName;
@@ -85,7 +91,9 @@ public class ExportExcelProcessor {
                         break;
                     case "graduatedYear":
                         cell.setCellValue("Ngày sinh");
-                        cell2.setCellValue(new Date(info.getNgaySinh()));
+                        Date date = new Date(info.getNgaySinh() * 1000L);
+                        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/YYYY");
+                        cell2.setCellValue(sdf.format(date));
                         break;
                     case "dob":
                         cell.setCellValue("Năm tốt nghiệp");
@@ -117,7 +125,7 @@ public class ExportExcelProcessor {
                 cell.setCellValue(resultHeadersArr[index]);
             }
 
-            if(!dao.fetchResult()){
+            if (!dao.fetchResult()) {
                 return;
             }
             List<KetQua> listResults = dao.getListResults();
@@ -134,19 +142,19 @@ public class ExportExcelProcessor {
                             value += index + "";
                             break;
                         case 1:
-                            if(mapSubjects.get(result.getMaHP()) != null){
+                            if (mapSubjects.get(result.getMaHP()) != null) {
                                 value += mapSubjects.get(result.getMaHP()).getTenMH();
 //                                cell.setCellValue(mapSubjects.get(result.getMaHP()).getTenMH());
                             }
                             break;
                         case 2:
-                            if(mapSubjects.get(result.getMaHP()) != null){
+                            if (mapSubjects.get(result.getMaHP()) != null) {
                                 value += mapSubjects.get(result.getMaHP()).getSoTinChi() + "";
 //                                cell.setCellValue(mapSubjects.get(result.getMaHP()).getSoTinChi());
                             }
                             break;
                         case 3:
-                            value += getRanking(result.getDiem());
+                            value += getPointA(result.getDiem());
                             break;
                         default:
                             break;
@@ -158,7 +166,7 @@ public class ExportExcelProcessor {
 
             // up border row to close table
             Row emptyRowWithUpBorder = sheet.createRow(++rowIndex);
-            for(int index = -1; ++index < resultHeadersArr.length;){
+            for (int index = -1; ++index < resultHeadersArr.length; ) {
                 Cell cell = emptyRowWithUpBorder.createCell(index);
                 cell.setCellStyle(createStyleUpBorder(sheet));
                 cell.setCellValue("");
@@ -179,7 +187,7 @@ public class ExportExcelProcessor {
 
             // up border row to close table
             Row emptyRowWithUpBorder1 = sheet.createRow(++rowIndex);
-            for(int index = -1; ++index < resultHeadersArr.length;){
+            for (int index = -1; ++index < resultHeadersArr.length; ) {
                 Cell cell = emptyRowWithUpBorder1.createCell(index);
                 cell.setCellStyle(createStyleUpBorder(sheet));
                 cell.setCellValue("");
@@ -198,7 +206,7 @@ public class ExportExcelProcessor {
                 Cell cell2 = row.createCell(1);
                 cell.setCellStyle(createStyleForResultCell(sheet));
                 cell2.setCellStyle(createStyleForResultCell(sheet));
-                switch (infoArr[index]) {
+                switch (finalRsArr[index]) {
                     case "totalCredits":
                         cell.setCellValue("Tổng số tín chỉ tích lũy");
                         cell2.setCellValue("149");
@@ -264,14 +272,14 @@ public class ExportExcelProcessor {
         return cellStyle;
     }
 
-    private static CellStyle createStyleForResultCellRow(Sheet sheet){
+    private static CellStyle createStyleForResultCellRow(Sheet sheet) {
         CellStyle cellStyle = sheet.getWorkbook().createCellStyle();
         cellStyle.setBorderLeft(BorderStyle.THICK);
         cellStyle.setBorderRight(BorderStyle.THICK);
         return cellStyle;
     }
 
-    private static CellStyle createStyleUpBorder(Sheet sheet){
+    private static CellStyle createStyleUpBorder(Sheet sheet) {
         CellStyle cellStyle = sheet.getWorkbook().createCellStyle();
         cellStyle.setBorderTop(BorderStyle.THICK);
         return cellStyle;
@@ -290,6 +298,29 @@ public class ExportExcelProcessor {
             result = Ranking.GOOD.get();
         } else {
             result = Ranking.EXCELLENT.get();
+        }
+        return result;
+    }
+
+    private static String getPointA(double point) {
+        String result;
+        if (point == 0.0) {
+            return "";
+        }
+        if (point < 1.5) {
+            result = "D";
+        } else if (point < 2.0) {
+            result = "D+";
+        } else if (point < 2.5) {
+            result = "C";
+        } else if (point < 3) {
+            result = "C+";
+        } else if (point < 3.5) {
+            result = "B";
+        } else if (point < 4) {
+            result = "B+";
+        } else {
+            result = "A";
         }
         return result;
     }

@@ -1,6 +1,7 @@
-package com.haui.dao;
+package com.haui.thaind;
 
 import com.haui.cache.UserManager;
+import com.haui.dao.SimpleDAO;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
