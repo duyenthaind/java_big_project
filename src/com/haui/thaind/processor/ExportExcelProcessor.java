@@ -1,4 +1,4 @@
-package com.haui.processor;
+package com.haui.thaind.processor;
 
 import com.haui.common.Config;
 import com.haui.common.Ranking;
@@ -26,9 +26,9 @@ import java.util.concurrent.Executors;
 public class ExportExcelProcessor {
     private static final ExecutorService EXECUTOR_SERVICE = Executors.newFixedThreadPool(10);
 
-    public static void main(String[] args) {
-        pubjob();
-    }
+//    public static void main(String[] args) {
+//        pubjob();
+//    }
 
     public static void pubjob() {
         Thread t = createJob();
