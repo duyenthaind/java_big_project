@@ -1,6 +1,7 @@
 package com.haui.thaind;
 
 import com.haui.cache.UserManager;
+import com.haui.dao.DerbyUtil;
 import com.haui.dao.SimpleDAO;
 
 import java.sql.Connection;
@@ -26,9 +27,11 @@ public class LoginDAO implements SimpleDAO {
             PreparedStatement statement = connection.prepareStatement(GET_USER_BY_ID);
             statement.setString(1, id);
             ResultSet resultSet = statement.executeQuery();
-            if (!resultSet.wasNull()) {
-                UserManager.init(id);
-                return true;
+            while (resultSet.next()) {
+                if (resultSet.getString("masv") != null && !resultSet.getString("masv").equals("")) {
+                    UserManager.init(id);
+                    return true;
+                }
             }
         } catch (Exception ex) {
             System.err.println("Error check account, trace: " + ex);
