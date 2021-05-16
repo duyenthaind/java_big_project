@@ -10,6 +10,7 @@ import com.haui.entities.SinhVien;
 import org.apache.poi.ss.usermodel.*;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
+import javax.swing.*;
 import java.io.FileOutputStream;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -233,6 +234,7 @@ public class ExportExcelProcessor {
             outputStream.close();
             workbook.close();
             System.out.println("Saved exported file as " + fullExportFileName);
+            JOptionPane.showMessageDialog(new JFrame(), "Exported file to: " + fullExportFileName);
 
         } catch (Exception ex) {
             System.err.println("Create workbook error, trace: " + ex);
