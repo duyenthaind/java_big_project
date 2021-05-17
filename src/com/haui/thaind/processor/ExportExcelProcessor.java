@@ -26,9 +26,9 @@ import java.util.concurrent.Executors;
 public class ExportExcelProcessor {
     private static final ExecutorService EXECUTOR_SERVICE = Executors.newFixedThreadPool(10);
 
-//    public static void main(String[] args) {
-//        pubjob();
-//    }
+    public static void main(String[] args) {
+        pubjob();
+    }
 
     public static void pubjob() {
         Thread t = createJob();
@@ -287,7 +287,7 @@ public class ExportExcelProcessor {
         return cellStyle;
     }
 
-    private static String getRanking(double point) {
+    private static String getRanking(float point) {
         String result;
         if (point == 0.0) {
             return "";
@@ -304,7 +304,7 @@ public class ExportExcelProcessor {
         return result;
     }
 
-    private static String getPointA(double point) {
+    private static String getPointA(float point) {
         String result;
         if (point == 0.0) {
             return "";

@@ -13,7 +13,7 @@ public class KetQua {
 
     private String maSV;
     private String maHP;
-    private double diem;
+    private float diem;
 
     public KetQua() {
     }
@@ -34,11 +34,11 @@ public class KetQua {
         this.maHP = maHP;
     }
 
-    public double getDiem() {
+    public float getDiem() {
         return diem;
     }
 
-    public void setDiem(double diem) {
+    public void setDiem(float diem) {
         this.diem = diem;
     }
 

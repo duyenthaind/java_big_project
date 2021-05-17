@@ -22,12 +22,13 @@ public class ReportDAO {
     private Khoa department;
     private List<KetQua> listResults;
     private Connection connection;
-    private double avgPoints = 0.0d;
+    private float avgPoints = 0.0f;
     private int totalCredits = 0;
     private Map<String, MonHoc> mapSubject;
 
     private static final String QUERY_USER = "select *from sinhvien where masv = ?";
-    private static final String QUERY_RESULT = "select *from ketqua where maSV = ?";
+    private static final String QUERY_RESULT = "select ketqua.masv, ketqua.mahp, ketqua.diem, monhoc.mamh from ketqua " +
+            "join hocphan on ketqua.mahp = hocphan.mahp join monhoc on hocphan.mamh = monhoc.mamh where maSV = ?";
     private static final String QUERY_DEPARTMENT = "select * from khoa where makhoa = (select makhoa from lop where malop = ?)";
     private static final String QUERY_SUBJECT = "select h.mahp, m.* from hocphan h join monhoc m on h.mamh = m.mamh " +
             "join ketqua k on h.mahp = k.mahp where k.masv = ?";
@@ -48,7 +49,7 @@ public class ReportDAO {
         return listResults;
     }
 
-    public Double getAvgPoints() {
+    public Float getAvgPoints() {
         return avgPoints;
     }
 
@@ -62,7 +63,7 @@ public class ReportDAO {
 
     public ReportDAO() {
         try {
-//            UserManager.init("sv01");
+            UserManager.init("SV2");
             if (UserManager.instance().getUserName() != null || !UserManager.instance().getUserName().equals("")) {
                 userId = UserManager.instance().getUserName();
                 connection = new DerbyUtil.Builder().build().getConnection();
@@ -84,7 +85,7 @@ public class ReportDAO {
                 totalCredits = sum;
             }
             if (totalCredits > 0) {
-                Double sum = listResults.stream().map(x -> x.getDiem() * mapSubject.get(x.getMaHP()).getSoTinChi()).reduce(0.0, (a, b) -> a + b);
+                Float sum = listResults.stream().map(x -> x.getDiem() * mapSubject.get(x.getMaHP()).getSoTinChi()).reduce(0.0f, (a, b) -> a + b);
                 avgPoints = sum / totalCredits;
             }
             result = true;
@@ -105,12 +106,13 @@ public class ReportDAO {
                 KetQua rs = new KetQua();
                 rs.setMaSV(resultSet.getString("masv"));
                 rs.setMaHP(resultSet.getString("mahp"));
-                rs.setDiem(resultSet.getDouble("diem"));
-                if (!map.containsKey(rs.getMaSV())) {
-                    map.put(rs.getMaSV(), rs);
+                rs.setDiem(resultSet.getFloat("diem"));
+                String key = resultSet.getString("mamh");
+                if (!map.containsKey(key)) {
+                    map.put(key, rs);
                 } else {
-                    if (map.get(rs.getMaSV()).getDiem() < rs.getDiem()) {
-                        map.put(rs.getMaSV(), rs);
+                    if (map.get(key).getDiem() < rs.getDiem()) {
+                        map.put(key, rs);
                     }
                 }
             }

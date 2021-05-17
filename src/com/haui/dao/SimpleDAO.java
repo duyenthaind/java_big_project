@@ -11,5 +11,7 @@ public interface SimpleDAO<T> {
 
     public boolean isExist(String id, Connection connection);
 
+    public boolean isExist(String id, String password, Connection connection);
+
     public boolean update(T object, Connection connection);
 }
