@@ -7,6 +7,7 @@ package com.haui.thaind.model;
 
 import com.haui.cache.UserManager;
 import com.haui.thaind.ReportDAO;
+import com.haui.thaind.processor.ExportExcelProcessor;
 
 import javax.swing.*;
 
@@ -273,19 +274,32 @@ public class ReportJFrame extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    public void load(){
-        if(UserManager.instance().getUserName().equals("") || UserManager.instance().getUserName() == null){
+    public boolean load(){
+        UserManager.init("SV2");
+        boolean result = false;
+        try{
+            String userID = UserManager.instance().getUserName();
+            if(userID == null){
+                return false;
+            }
+            ReportDAO dao = new ReportDAO();
+            dao.fetchResult();
+            CustomTableResult tableResultMain = new CustomTableResult();
+            tableResultMain.setDaoItems(dao.getListResults(), dao.getMapSubject());
+            jtbResult.setModel(tableResultMain);
+            jtbResultAlternative.setModel(new CustomTableResult());
+            result = true;
+        } catch(Exception ex){
             JOptionPane.showMessageDialog(new JFrame(), "Error after login, cannot specify userId");
-            this.setVisible(false);
-            return;
+            System.err.println("Error null pointer, no user specified, trace: " + ex);
+            ex.printStackTrace();
+        } finally {
+            return result;
         }
-        ReportDAO dao = new ReportDAO();
-
-
     }
 
     private void btnExportActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExportActionPerformed
-        // TODO add your handling code here:
+        ExportExcelProcessor.pubjob();
     }
 
     /**
@@ -318,7 +332,16 @@ public class ReportJFrame extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new ReportJFrame().setVisible(true);
+                ReportJFrame frame =  new ReportJFrame();
+                try{
+                    if(frame.load()){
+                        frame.setVisible(true);
+                    }
+                } catch(Exception ex){
+                    System.out.println("set frame");
+                    System.err.println("Error: " + ex);
+                    ex.printStackTrace();
+                }
             }
         });
     }
