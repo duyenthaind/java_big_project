@@ -11,9 +11,12 @@ import com.haui.thaind.dao.ReportDAO;
 import com.haui.thaind.processor.ExportExcelProcessor;
 
 import javax.swing.*;
+import javax.swing.border.Border;
+import java.awt.*;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 /**
- *
  * @author duyenthai
  */
 public class ReportJFrame extends javax.swing.JFrame {
@@ -55,10 +58,10 @@ public class ReportJFrame extends javax.swing.JFrame {
         jtbResult = new javax.swing.JTable();
         jScrollPane2 = new javax.swing.JScrollPane();
         jtbResultAlternative = new javax.swing.JTable();
-        jLabel11 = new javax.swing.JLabel();
-        jLabel12 = new javax.swing.JLabel();
-        jLabel13 = new javax.swing.JLabel();
-        jLabel14 = new javax.swing.JLabel();
+        jlbCreditsTitle = new javax.swing.JLabel();
+        jlbTotalCreditsTitile = new javax.swing.JLabel();
+        jlbAvgPointsTitle = new javax.swing.JLabel();
+        jlbFinalRankingTitle = new javax.swing.JLabel();
         jlbCredits = new javax.swing.JLabel();
         jlbTotalCredits = new javax.swing.JLabel();
         jlbAvgPoints = new javax.swing.JLabel();
@@ -124,13 +127,13 @@ public class ReportJFrame extends javax.swing.JFrame {
         ));
         jScrollPane2.setViewportView(jtbResultAlternative);
 
-        jLabel11.setText("Tổng số tín chỉ tích lũy");
+        jlbCreditsTitle.setText("Tổng số tín chỉ tích lũy");
 
-        jLabel12.setText("Tổng số TC tích lũy dùng để tính điểm TBCTL");
+        jlbTotalCreditsTitile.setText("Tổng số TC tích lũy dùng để tính điểm TBCTL");
 
-        jLabel13.setText("Điểm TBCTL");
+        jlbAvgPointsTitle.setText("Điểm TBCTL");
 
-        jLabel14.setText("Xếp hạng tốt nghiệp");
+        jlbFinalRankingTitle.setText("Xếp hạng tốt nghiệp");
 
         javax.swing.GroupLayout jpnRootLayout = new javax.swing.GroupLayout(jpnRoot);
         jpnRoot.setLayout(jpnRootLayout);
@@ -141,56 +144,63 @@ public class ReportJFrame extends javax.swing.JFrame {
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jpnRootLayout.createSequentialGroup()
-                        .addGroup(jpnRootLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(btnExport, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(jpnRootLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jpnRootLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jpnRootLayout.createSequentialGroup()
+                                .addGap(18, 18, 18)
+                                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jpnRootLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jpnRootLayout.createSequentialGroup()
+                                    .addGap(18, 18, 18)
+                                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGroup(jpnRootLayout.createSequentialGroup()
-                                    .addGap(12, 12, 12)
-                                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(jpnRootLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jpnRootLayout.createSequentialGroup()
-                                        .addGap(12, 12, 12)
-                                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(jpnRootLayout.createSequentialGroup()
-                                        .addContainerGap()
-                                        .addGroup(jpnRootLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addGap(18, 18, 18)
-                                        .addGroup(jpnRootLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jlbDeparment, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(jlbName, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(jlbRanking, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(jlbDob, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(jlbYearGrad, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                                .addGroup(jpnRootLayout.createSequentialGroup()
-                                    .addContainerGap()
-                                    .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 500, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(jpnRootLayout.createSequentialGroup()
-                                    .addContainerGap()
-                                    .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 500, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(jpnRootLayout.createSequentialGroup()
-                                    .addContainerGap()
-                                    .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 500, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                                    .addGap(18, 18, 18)
+                                    .addGroup(jpnRootLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGap(18, 18, 18)
+                                    .addGroup(jpnRootLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(jlbDeparment, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(jlbName, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(jlbRanking, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(jlbDob, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(jlbYearGrad, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addGroup(jpnRootLayout.createSequentialGroup()
+                                .addGap(18, 18, 18)
+                                .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 500, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jpnRootLayout.createSequentialGroup()
+                                .addGap(18, 18, 18)
+                                .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 500, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jpnRootLayout.createSequentialGroup()
+                                .addGap(18, 18, 18)
+                                .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 500, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jpnRootLayout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(jlbTotalCreditsTitile, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, 0)
+                                .addGroup(jpnRootLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jlbCredits, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jlbTotalCredits, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jpnRootLayout.createSequentialGroup()
+                                .addGap(6, 6, 6)
+                                .addComponent(btnExport, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(0, 222, Short.MAX_VALUE)))
                 .addContainerGap())
             .addGroup(jpnRootLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jpnRootLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jpnRootLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jlbCredits, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jlbTotalCredits, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jlbAvgPoints, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jlbFinalRanking, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(222, Short.MAX_VALUE))
+                    .addGroup(jpnRootLayout.createSequentialGroup()
+                        .addGroup(jpnRootLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jlbAvgPointsTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jlbFinalRankingTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(0, 0, 0)
+                        .addGroup(jpnRootLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jlbAvgPoints, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jlbFinalRanking, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(jlbCreditsTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jpnRootLayout.setVerticalGroup(
             jpnRootLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -235,22 +245,23 @@ public class ReportJFrame extends javax.swing.JFrame {
                 .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jpnRootLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jlbCredits, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jpnRootLayout.createSequentialGroup()
-                        .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jpnRootLayout.createSequentialGroup()
-                        .addComponent(jlbCredits, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jlbTotalCredits, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jlbAvgPoints, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jlbFinalRanking, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jlbCreditsTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addGroup(jpnRootLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jpnRootLayout.createSequentialGroup()
+                                .addComponent(jlbTotalCreditsTitile, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, 0)
+                                .addComponent(jlbAvgPointsTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, 0)
+                                .addComponent(jlbFinalRankingTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jpnRootLayout.createSequentialGroup()
+                                .addComponent(jlbTotalCredits, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, 0)
+                                .addComponent(jlbAvgPoints, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, 0)
+                                .addComponent(jlbFinalRanking, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addContainerGap(74, Short.MAX_VALUE))
         );
 
@@ -275,22 +286,39 @@ public class ReportJFrame extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    public boolean load(){
+    public boolean load() {
         UserManager.init("SV2");
         boolean result = false;
-        try{
+        try {
             String userID = UserManager.instance().getUserName();
-            if(userID == null){
+            if (userID == null) {
                 return false;
             }
             ReportDAO dao = new ReportDAO();
-            dao.fetchResult();
-            CustomTableResult tableResultMain = new CustomTableResult();
-            tableResultMain.setDaoItems(dao.getListResults(), dao.getMapSubject());
-            jtbResult.setModel(tableResultMain);
-            jtbResultAlternative.setModel(new CustomTableResult());
-            result = true;
-        } catch(Exception ex){
+            if (dao.fetchResult()) {
+                CustomTableResult tableResultMain = new CustomTableResult();
+                tableResultMain.setDaoItems(dao.getListResults(), dao.getMapSubject());
+                jtbResult.setModel(tableResultMain);
+                jtbResultAlternative.setModel(new CustomTableResult());
+                jlbDeparment.setText(dao.getDepartment().getTenKhoa());
+                jlbName.setText(dao.getStudent().getTenSV());
+                SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/YYYY");
+                try {
+                    // long value is timestamp(second) -> convert to milliseconds
+                    jlbDob.setText(sdf.format(new Date(dao.getStudent().getNgaySinh() * 1000)));
+                } catch (Exception ex) {
+                    System.err.println("Format date error, trace: " + ex);
+                    ex.printStackTrace();
+                }
+                jlbRanking.setText(getRanking(dao.getAvgPoints()));
+                jlbCredits.setText(String.valueOf(149));
+                jlbTotalCredits.setText(dao.getTotalCredits() + "");
+                jlbAvgPoints.setText(String.format("%.2f", dao.getAvgPoints()));
+                jlbFinalRanking.setText(getRanking(dao.getAvgPoints()));
+                setBorder();
+                result = true;
+            }
+        } catch (Exception ex) {
             JOptionPane.showMessageDialog(new JFrame(), "Error after login, cannot specify userId");
             System.err.println("Error null pointer, no user specified, trace: " + ex);
             ex.printStackTrace();
@@ -299,7 +327,20 @@ public class ReportJFrame extends javax.swing.JFrame {
         }
     }
 
-    private void btnExportActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExportActionPerformed
+
+    private void setBorder(){
+        Border allThickBorder = BorderFactory.createLineBorder(Color.BLACK);
+        jlbCredits.setBorder(allThickBorder);
+        jlbTotalCredits.setBorder(allThickBorder);
+        jlbAvgPoints.setBorder(allThickBorder);
+        jlbFinalRanking.setBorder(allThickBorder);
+        jlbCreditsTitle.setBorder(allThickBorder);
+        jlbTotalCreditsTitile.setBorder(allThickBorder);
+        jlbAvgPointsTitle.setBorder(allThickBorder);
+        jlbFinalRankingTitle.setBorder(allThickBorder);
+    }
+
+    private void btnExportActionPerformed(java.awt.event.ActionEvent evt) {                                          
         ExportExcelProcessor.pubjob();
     }
 
@@ -350,7 +391,7 @@ public class ReportJFrame extends javax.swing.JFrame {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html
          */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
@@ -373,12 +414,12 @@ public class ReportJFrame extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                ReportJFrame frame =  new ReportJFrame();
-                try{
-                    if(frame.load()){
+                ReportJFrame frame = new ReportJFrame();
+                try {
+                    if (frame.load()) {
                         frame.setVisible(true);
                     }
-                } catch(Exception ex){
+                } catch (Exception ex) {
                     System.out.println("set frame");
                     System.err.println("Error: " + ex);
                     ex.printStackTrace();
@@ -391,10 +432,6 @@ public class ReportJFrame extends javax.swing.JFrame {
     private javax.swing.JButton btnExport;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel12;
-    private javax.swing.JLabel jLabel13;
-    private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -406,16 +443,20 @@ public class ReportJFrame extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JLabel jlbAvgPoints;
+    private javax.swing.JLabel jlbAvgPointsTitle;
     private javax.swing.JLabel jlbCredits;
+    private javax.swing.JLabel jlbCreditsTitle;
     private javax.swing.JLabel jlbDeparment;
     private javax.swing.JLabel jlbDob;
     private javax.swing.JLabel jlbFinalRanking;
+    private javax.swing.JLabel jlbFinalRankingTitle;
     private javax.swing.JLabel jlbName;
     private javax.swing.JLabel jlbRanking;
     private javax.swing.JLabel jlbTotalCredits;
+    private javax.swing.JLabel jlbTotalCreditsTitile;
     private javax.swing.JLabel jlbYearGrad;
     private javax.swing.JPanel jpnRoot;
-    private javax.swing.JTable jtbResultAlternative;
     private javax.swing.JTable jtbResult;
+    private javax.swing.JTable jtbResultAlternative;
     // End of variables declaration//GEN-END:variables
 }

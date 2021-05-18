@@ -50,52 +50,62 @@
                       <Component id="jScrollPane1" alignment="1" max="32767" attributes="0"/>
                       <Component id="jScrollPane2" alignment="1" max="32767" attributes="0"/>
                       <Group type="102" attributes="0">
-                          <Group type="103" groupAlignment="1" attributes="0">
-                              <Component id="btnExport" min="-2" pref="300" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="102" alignment="0" attributes="0">
+                                  <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
+                                  <Component id="jLabel1" min="-2" pref="200" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="103" alignment="0" groupAlignment="1" attributes="0">
                                   <Group type="102" alignment="0" attributes="0">
-                                      <EmptySpace min="12" pref="12" max="-2" attributes="0"/>
-                                      <Component id="jLabel1" min="-2" pref="200" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
+                                      <Component id="jLabel2" min="-2" pref="250" max="-2" attributes="0"/>
                                   </Group>
-                                  <Group type="103" alignment="0" groupAlignment="1" attributes="0">
-                                      <Group type="102" alignment="0" attributes="0">
-                                          <EmptySpace min="12" pref="12" max="-2" attributes="0"/>
-                                          <Component id="jLabel2" min="-2" pref="250" max="-2" attributes="0"/>
+                                  <Group type="102" attributes="0">
+                                      <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="jLabel4" alignment="0" min="-2" pref="200" max="-2" attributes="0"/>
+                                          <Component id="jLabel3" alignment="0" min="-2" pref="200" max="-2" attributes="0"/>
+                                          <Component id="jLabel5" alignment="0" min="-2" pref="200" max="-2" attributes="0"/>
+                                          <Component id="jLabel6" alignment="0" min="-2" pref="200" max="-2" attributes="0"/>
+                                          <Component id="jLabel7" alignment="0" min="-2" pref="200" max="-2" attributes="0"/>
                                       </Group>
-                                      <Group type="102" attributes="0">
-                                          <EmptySpace max="-2" attributes="0"/>
-                                          <Group type="103" groupAlignment="0" attributes="0">
-                                              <Component id="jLabel4" alignment="0" min="-2" pref="200" max="-2" attributes="0"/>
-                                              <Component id="jLabel3" alignment="0" min="-2" pref="200" max="-2" attributes="0"/>
-                                              <Component id="jLabel5" alignment="0" min="-2" pref="200" max="-2" attributes="0"/>
-                                              <Component id="jLabel6" alignment="0" min="-2" pref="200" max="-2" attributes="0"/>
-                                              <Component id="jLabel7" alignment="0" min="-2" pref="200" max="-2" attributes="0"/>
-                                          </Group>
-                                          <EmptySpace type="separate" max="-2" attributes="0"/>
-                                          <Group type="103" groupAlignment="0" attributes="0">
-                                              <Component id="jlbDeparment" alignment="0" min="-2" pref="200" max="-2" attributes="0"/>
-                                              <Component id="jlbName" alignment="0" min="-2" pref="200" max="-2" attributes="0"/>
-                                              <Component id="jlbRanking" alignment="0" min="-2" pref="200" max="-2" attributes="0"/>
-                                              <Component id="jlbDob" alignment="0" min="-2" pref="200" max="-2" attributes="0"/>
-                                              <Component id="jlbYearGrad" alignment="0" min="-2" pref="200" max="-2" attributes="0"/>
-                                          </Group>
+                                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="jlbDeparment" alignment="0" min="-2" pref="200" max="-2" attributes="0"/>
+                                          <Component id="jlbName" alignment="0" min="-2" pref="200" max="-2" attributes="0"/>
+                                          <Component id="jlbRanking" alignment="0" min="-2" pref="200" max="-2" attributes="0"/>
+                                          <Component id="jlbDob" alignment="0" min="-2" pref="200" max="-2" attributes="0"/>
+                                          <Component id="jlbYearGrad" alignment="0" min="-2" pref="200" max="-2" attributes="0"/>
                                       </Group>
-                                  </Group>
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="jLabel8" min="-2" pref="500" max="-2" attributes="0"/>
-                                  </Group>
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="jLabel10" min="-2" pref="500" max="-2" attributes="0"/>
-                                  </Group>
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="jLabel9" min="-2" pref="500" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
+                                  <Component id="jLabel8" min="-2" pref="500" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
+                                  <Component id="jLabel10" min="-2" pref="500" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
+                                  <Component id="jLabel9" min="-2" pref="500" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="102" attributes="0">
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="jlbTotalCreditsTitile" min="-2" pref="300" max="-2" attributes="0"/>
+                                  <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="jlbCredits" min="-2" pref="200" max="-2" attributes="0"/>
+                                      <Component id="jlbTotalCredits" min="-2" pref="200" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
+                              <Group type="102" alignment="1" attributes="0">
+                                  <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
+                                  <Component id="btnExport" min="-2" pref="300" max="-2" attributes="0"/>
+                              </Group>
                           </Group>
-                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                          <EmptySpace min="0" pref="222" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
@@ -103,19 +113,20 @@
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="jLabel11" alignment="0" min="-2" pref="300" max="-2" attributes="0"/>
-                      <Component id="jLabel12" alignment="0" min="-2" pref="300" max="-2" attributes="0"/>
-                      <Component id="jLabel13" alignment="0" min="-2" pref="300" max="-2" attributes="0"/>
-                      <Component id="jLabel14" alignment="0" min="-2" pref="300" max="-2" attributes="0"/>
+                      <Group type="102" alignment="0" attributes="0">
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="jlbAvgPointsTitle" alignment="0" min="-2" pref="300" max="-2" attributes="0"/>
+                              <Component id="jlbFinalRankingTitle" alignment="0" min="-2" pref="300" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="jlbAvgPoints" min="-2" pref="200" max="-2" attributes="0"/>
+                              <Component id="jlbFinalRanking" min="-2" pref="200" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
+                      <Component id="jlbCreditsTitle" alignment="0" min="-2" pref="300" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="jlbCredits" alignment="0" min="-2" pref="200" max="-2" attributes="0"/>
-                      <Component id="jlbTotalCredits" alignment="0" min="-2" pref="200" max="-2" attributes="0"/>
-                      <Component id="jlbAvgPoints" alignment="0" min="-2" pref="200" max="-2" attributes="0"/>
-                      <Component id="jlbFinalRanking" alignment="0" min="-2" pref="200" max="-2" attributes="0"/>
-                  </Group>
-                  <EmptySpace pref="222" max="32767" attributes="0"/>
+                  <EmptySpace max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -165,23 +176,26 @@
                   <Component id="jLabel9" min="-2" pref="30" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
+                      <Component id="jlbCredits" min="-2" pref="30" max="-2" attributes="0"/>
                       <Group type="102" alignment="0" attributes="0">
-                          <Component id="jLabel11" min="-2" pref="30" max="-2" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Component id="jLabel12" min="-2" pref="30" max="-2" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Component id="jLabel13" min="-2" pref="30" max="-2" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Component id="jLabel14" min="-2" pref="30" max="-2" attributes="0"/>
-                      </Group>
-                      <Group type="102" alignment="0" attributes="0">
-                          <Component id="jlbCredits" min="-2" pref="30" max="-2" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Component id="jlbTotalCredits" min="-2" pref="30" max="-2" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Component id="jlbAvgPoints" min="-2" pref="30" max="-2" attributes="0"/>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Component id="jlbFinalRanking" min="-2" pref="30" max="-2" attributes="0"/>
+                          <Component id="jlbCreditsTitle" min="-2" pref="30" max="-2" attributes="0"/>
+                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="102" attributes="0">
+                                  <Component id="jlbTotalCreditsTitile" min="-2" pref="30" max="-2" attributes="0"/>
+                                  <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
+                                  <Component id="jlbAvgPointsTitle" min="-2" pref="30" max="-2" attributes="0"/>
+                                  <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
+                                  <Component id="jlbFinalRankingTitle" min="-2" pref="30" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="102" attributes="0">
+                                  <Component id="jlbTotalCredits" min="-2" pref="30" max="-2" attributes="0"/>
+                                  <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
+                                  <Component id="jlbAvgPoints" min="-2" pref="30" max="-2" attributes="0"/>
+                                  <EmptySpace min="0" pref="0" max="-2" attributes="0"/>
+                                  <Component id="jlbFinalRanking" min="-2" pref="30" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
                       </Group>
                   </Group>
                   <EmptySpace pref="74" max="32767" attributes="0"/>
@@ -318,22 +332,22 @@
             </Component>
           </SubComponents>
         </Container>
-        <Component class="javax.swing.JLabel" name="jLabel11">
+        <Component class="javax.swing.JLabel" name="jlbCreditsTitle">
           <Properties>
             <Property name="text" type="java.lang.String" value="T&#x1ed5;ng s&#x1ed1; t&#xed;n ch&#x1ec9; t&#xed;ch l&#x169;y"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="jLabel12">
+        <Component class="javax.swing.JLabel" name="jlbTotalCreditsTitile">
           <Properties>
             <Property name="text" type="java.lang.String" value="T&#x1ed5;ng s&#x1ed1; TC t&#xed;ch l&#x169;y d&#xf9;ng &#x111;&#x1ec3; t&#xed;nh &#x111;i&#x1ec3;m TBCTL"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="jLabel13">
+        <Component class="javax.swing.JLabel" name="jlbAvgPointsTitle">
           <Properties>
             <Property name="text" type="java.lang.String" value="&#x110;i&#x1ec3;m TBCTL"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="jLabel14">
+        <Component class="javax.swing.JLabel" name="jlbFinalRankingTitle">
           <Properties>
             <Property name="text" type="java.lang.String" value="X&#x1ebf;p h&#x1ea1;ng t&#x1ed1;t nghi&#x1ec7;p"/>
           </Properties>
