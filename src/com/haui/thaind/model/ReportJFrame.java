@@ -331,7 +331,7 @@ public class ReportJFrame extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     public boolean load() {
-        UserManager.init("SV2");
+//        UserManager.init("SV2");
         boolean result = false;
         try {
             String userID = UserManager.instance().getUserName();

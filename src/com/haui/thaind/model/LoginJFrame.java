@@ -12,6 +12,7 @@ import com.haui.thaind.dao.LoginDAO;
 import javax.swing.*;
 import java.awt.*;
 import java.sql.Connection;
+import java.util.Date;
 
 /**
  * @author duyenthai
@@ -164,8 +165,17 @@ public class LoginJFrame extends javax.swing.JFrame {
         boolean isOk = dao.isExist(jtfUserId.getText(), jpfPassword.getText(), connection);
         System.out.println(jpfPassword.getText());
         if (isOk) {
-            UserManager.init(jtfUserId.getText());
-            JOptionPane.showMessageDialog(new JFrame(), "Login ok");
+//            UserManager.init(jtfUserId.getText());
+            System.out.println("Login ok, userId: " + jtfUserId.getText() + " is online!");
+            MainMenuJFrame mainMenuJFrame = new MainMenuJFrame();
+            mainMenuJFrame.setVisible(true);
+//            java.awt.EventQueue.invokeLater(new Runnable() {
+//                @Override
+//                public void run() {
+//                    MainMenuJFrame mainMenuJFrame = new MainMenuJFrame();
+//                    mainMenuJFrame.setVisible(true);
+//                }
+//            });
         } else {
             jlbWarning.setText("Error, please check your account");
             jlbWarning.setForeground(Color.RED);
@@ -173,6 +183,7 @@ public class LoginJFrame extends javax.swing.JFrame {
     }
 
     private void btnExitActionPerformed(java.awt.event.ActionEvent evt) {
+        System.out.println("Exitting, time: " + new Date());
         System.exit(0);
     }
 
