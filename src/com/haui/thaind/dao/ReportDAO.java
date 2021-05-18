@@ -61,7 +61,7 @@ public class ReportDAO {
 
     public ReportDAO() {
         try {
-            UserManager.init("SV2");
+//            UserManager.init("SV2");
             if (UserManager.instance().getUserName() != null || !UserManager.instance().getUserName().equals("")) {
                 userId = UserManager.instance().getUserName();
                 connection = new DerbyUtil.Builder().build().getConnection();
