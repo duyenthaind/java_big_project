@@ -5,9 +5,9 @@
  */
 package com.haui.thaind.model;
 
-import com.haui.cache.UserManager;
-import com.haui.dao.DerbyUtil;
-import com.haui.thaind.LoginDAO;
+import com.haui.thaind.cache.UserManager;
+import com.haui.thaind.dao.DerbyUtil;
+import com.haui.thaind.dao.LoginDAO;
 
 import javax.swing.*;
 import java.awt.*;

@@ -26,6 +26,7 @@ public class CustomTableResult extends AbstractTableModel {
             if (map.get(result.getMaHP()) != null) {
                 MonHoc sub = map.get(result.getMaHP());
                 item.setCredit(sub.getSoTinChi());
+                item.setSubjectName(sub.getTenMH());
             }
             item.setMark(validMark(result.getDiem()));
             listItem.add(item);

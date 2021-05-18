@@ -1,8 +1,8 @@
 package com.haui.thaind.processor;
 
 import com.haui.common.Config;
-import com.haui.common.Ranking;
-import com.haui.thaind.ReportDAO;
+import com.haui.thaind.common.Ranking;
+import com.haui.thaind.dao.ReportDAO;
 import com.haui.entities.KetQua;
 import com.haui.entities.Khoa;
 import com.haui.entities.MonHoc;

@@ -5,8 +5,9 @@
  */
 package com.haui.thaind.model;
 
-import com.haui.cache.UserManager;
-import com.haui.thaind.ReportDAO;
+import com.haui.thaind.cache.UserManager;
+import com.haui.thaind.common.Ranking;
+import com.haui.thaind.dao.ReportDAO;
 import com.haui.thaind.processor.ExportExcelProcessor;
 
 import javax.swing.*;
@@ -300,6 +301,46 @@ public class ReportJFrame extends javax.swing.JFrame {
 
     private void btnExportActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExportActionPerformed
         ExportExcelProcessor.pubjob();
+    }
+
+    private static String getRanking(float point) {
+        String result;
+        if (point == 0.0) {
+            return "";
+        }
+        if (point < 2.5) {
+            result = Ranking.BELOW_AVERAGE.get();
+        } else if (point < 3.2) {
+            result = Ranking.AVERAGE.get();
+        } else if (point < 3.5) {
+            result = Ranking.GOOD.get();
+        } else {
+            result = Ranking.EXCELLENT.get();
+        }
+        return result;
+    }
+
+    private static String getPointA(float point) {
+        String result;
+        if (point == 0.0) {
+            return "";
+        }
+        if (point < 1.5) {
+            result = "D";
+        } else if (point < 2.0) {
+            result = "D+";
+        } else if (point < 2.5) {
+            result = "C";
+        } else if (point < 3) {
+            result = "C+";
+        } else if (point < 3.5) {
+            result = "B";
+        } else if (point < 4) {
+            result = "B+";
+        } else {
+            result = "A";
+        }
+        return result;
     }
 
     /**

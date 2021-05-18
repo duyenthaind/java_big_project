@@ -1,4 +1,4 @@
-package com.haui.dao;
+package com.haui.thaind.dao;
 
 import java.sql.Connection;
 import java.util.List;

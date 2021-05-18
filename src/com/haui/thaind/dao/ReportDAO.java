@@ -1,13 +1,11 @@
-package com.haui.thaind;
+package com.haui.thaind.dao;
 
-import com.haui.cache.UserManager;
-import com.haui.dao.DerbyUtil;
+import com.haui.thaind.cache.UserManager;
 import com.haui.entities.KetQua;
 import com.haui.entities.Khoa;
 import com.haui.entities.MonHoc;
 import com.haui.entities.SinhVien;
 
-import javax.xml.transform.Result;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;

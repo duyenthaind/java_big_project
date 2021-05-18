@@ -1,4 +1,4 @@
-package com.haui.common;
+package com.haui.thaind.common;
 
 /**
  * @author duyenthai

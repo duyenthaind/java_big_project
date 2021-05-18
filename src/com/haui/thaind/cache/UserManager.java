@@ -1,4 +1,4 @@
-package com.haui.cache;
+package com.haui.thaind.cache;
 
 /**
  * @author duyenthai
