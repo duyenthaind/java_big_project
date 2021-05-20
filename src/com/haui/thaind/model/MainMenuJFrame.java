@@ -5,7 +5,9 @@
  */
 package com.haui.thaind.model;
 
+import com.haui.taind.SuaThongTinSinhVienTable;
 import com.haui.thaind.cache.UserManager;
+import com.haui.thangnd.XemKetQuaHocTap.XemKetQuaHocTap;
 
 import javax.swing.*;
 import java.util.Date;
@@ -180,6 +182,9 @@ public class MainMenuJFrame extends javax.swing.JFrame {
     }
 
     private void btnChangeUserInfoActionPerformed(java.awt.event.ActionEvent evt) {
+        SuaThongTinSinhVienTable suaThongTinSinhVienTable = new SuaThongTinSinhVienTable();
+        suaThongTinSinhVienTable.LoadData();
+        suaThongTinSinhVienTable.setVisible(true);
     }
 
     private void btnManageSubjectActionPerformed(java.awt.event.ActionEvent evt) {
@@ -189,6 +194,8 @@ public class MainMenuJFrame extends javax.swing.JFrame {
     }
 
     private void btnResultActionPerformed(java.awt.event.ActionEvent evt) {
+        XemKetQuaHocTap xemKetQuaHocTap = new XemKetQuaHocTap();
+        xemKetQuaHocTap.setVisible(true);
     }
 
     private void btnExportInfoActionPerformed(java.awt.event.ActionEvent evt) {
