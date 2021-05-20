@@ -5,7 +5,7 @@ package com.haui.thaind.common;
  */
 public enum Ranking {
 
-    BELOW_AVERAGE("Trung bình"),AVERAGE("Khá"), GOOD("Giỏi"), EXCELLENT("Xuất xắc");
+    BELOW_AVERAGE("Trung bình"),AVERAGE("Khá"), GOOD("Giỏi"), EXCELLENT("Xuất sắc");
 
     private final String value;
 
