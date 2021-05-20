@@ -6,6 +6,7 @@ import com.haui.entities.Khoa;
 import com.haui.entities.MonHoc;
 import com.haui.entities.SinhVien;
 
+import javax.swing.*;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -96,8 +97,9 @@ public class ReportDAO {
 
     private List<KetQua> getFinalResults() {
         Map<String, KetQua> map = new HashMap<>();
+        Connection customConnection = new DerbyUtil.Builder().build().getConnection();
         try {
-            PreparedStatement statement = connection.prepareStatement(QUERY_RESULT);
+            PreparedStatement statement = customConnection.prepareStatement(QUERY_RESULT);
             statement.setString(1, this.userId);
             ResultSet resultSet = statement.executeQuery();
             while (resultSet.next()) {
@@ -118,14 +120,17 @@ public class ReportDAO {
         } catch (Exception ex) {
             System.err.println("Get all result error, trace: " + ex);
             ex.printStackTrace();
+        } finally{
+            closeConnection(customConnection);
         }
         return null;
     }
 
     private boolean getInfo() {
         boolean result = false;
+        Connection customConnection = new DerbyUtil.Builder().build().getConnection();
         try {
-            PreparedStatement statementStudent = connection.prepareStatement(QUERY_USER);
+            PreparedStatement statementStudent = customConnection.prepareStatement(QUERY_USER);
             statementStudent.setString(1, userId);
             ResultSet resultSetSv = statementStudent.executeQuery();
             while (resultSetSv.next()) {
@@ -141,7 +146,7 @@ public class ReportDAO {
                 student.setNgaySinh(resultSetSv.getLong("ngaysinh"));
             }
             if (student != null) {
-                PreparedStatement statementDepartment = connection.prepareStatement(QUERY_DEPARTMENT);
+                PreparedStatement statementDepartment = customConnection.prepareStatement(QUERY_DEPARTMENT);
                 statementDepartment.setString(1, student.getMaLop());
                 ResultSet resultSetKhoa = statementDepartment.executeQuery();
                 while (resultSetKhoa.next()) {
@@ -155,14 +160,17 @@ public class ReportDAO {
         } catch (Exception ex) {
             System.err.println("Fetch student info error, trace: " + ex);
             ex.printStackTrace();
+        } finally{
+            closeConnection(customConnection);
         }
         return result;
     }
 
     private Map<String, MonHoc> getMapSubjectResults() {
         Map<String, MonHoc> result = new HashMap<>();
+        Connection customConnection = new DerbyUtil.Builder().build().getConnection();
         try {
-            PreparedStatement statement = connection.prepareStatement(QUERY_SUBJECT);
+            PreparedStatement statement = customConnection.prepareStatement(QUERY_SUBJECT);
             statement.setString(1, userId);
             ResultSet resultSet = statement.executeQuery();
             while (resultSet.next()) {
@@ -180,8 +188,23 @@ public class ReportDAO {
         } catch (Exception ex) {
             System.err.println("Get all subject error, trace: " + ex);
             ex.printStackTrace();
+        } finally{
+            closeConnection(customConnection);
         }
         return result;
+    }
+
+    private void closeConnection(Connection connection){
+        try{
+            if(this.connection != null){
+                connection.close();
+            }
+        } catch(Exception ex){
+            JOptionPane.showMessageDialog(null, "Error: Close connection error, see logs for more details!", "Error", JOptionPane.ERROR_MESSAGE);
+            System.err.println("Close connection error, trace: " + ex);
+            ex.printStackTrace();
+        }
+
     }
 }
 

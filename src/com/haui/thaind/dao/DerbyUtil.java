@@ -26,7 +26,7 @@ public class DerbyUtil {
 
     public static class Builder {
 
-        public Connection connection;
+        private Connection connection;
 
         public Builder() {
             init();
