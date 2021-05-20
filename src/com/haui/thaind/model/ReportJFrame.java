@@ -335,7 +335,7 @@ public class ReportJFrame extends javax.swing.JFrame {
         boolean result = false;
         try {
             String userID = UserManager.instance().getUserName();
-            if (userID == null) {
+            if (userID == null || userID.isEmpty()) {
                 return false;
             }
             ReportDAO dao = new ReportDAO();
