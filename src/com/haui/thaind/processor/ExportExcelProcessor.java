@@ -93,7 +93,7 @@ public class ExportExcelProcessor {
                     case "graduatedYear":
                         cell.setCellValue("Ngày sinh");
                         Date date = new Date(info.getNgaySinh() * 1000L);
-                        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/YYYY");
+                        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
                         cell2.setCellValue(sdf.format(date));
                         break;
                     case "dob":

@@ -346,7 +346,7 @@ public class ReportJFrame extends javax.swing.JFrame {
                 jtbResultAlternative.setModel(new CustomTableResult());
                 jlbDeparment.setText(dao.getDepartment().getTenKhoa());
                 jlbName.setText(dao.getStudent().getTenSV());
-                SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/YYYY");
+                SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
                 try {
                     // long value is timestamp(second) -> convert to milliseconds
                     jlbDob.setText(sdf.format(new Date(dao.getStudent().getNgaySinh() * 1000)));
