@@ -285,8 +285,6 @@ public class SuaThongTinSinhVienTable extends javax.swing.JFrame {
             SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
             Date date = sdf.parse(txtNgaySinh.getText());
             long ngaysinh = date.getTime() / 1000;
-            System.out.println(date);
-            System.out.println(ngaysinh);
             int gioitinh = 0;
             if (Nu.isSelected()) {
                 gioitinh = 1;

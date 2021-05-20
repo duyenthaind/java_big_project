@@ -5,6 +5,8 @@
  */
 package com.haui.thaind.model;
 
+import com.haui.sonnx.QLHP_Frame;
+import com.haui.sonnx.XemThoiKhoaBieu_Frame;
 import com.haui.taind.SuaThongTinSinhVienTable;
 import com.haui.thaind.cache.UserManager;
 import com.haui.thangnd.XemKetQuaHocTap.XemKetQuaHocTap;
@@ -188,9 +190,13 @@ public class MainMenuJFrame extends javax.swing.JFrame {
     }
 
     private void btnManageSubjectActionPerformed(java.awt.event.ActionEvent evt) {
+        QLHP_Frame frame = new QLHP_Frame();
+        frame.setVisible(true);
     }
 
     private void btnTimtableActionPerformed(java.awt.event.ActionEvent evt) {
+        XemThoiKhoaBieu_Frame frame = new XemThoiKhoaBieu_Frame();
+        frame.setVisible(true);
     }
 
     private void btnResultActionPerformed(java.awt.event.ActionEvent evt) {

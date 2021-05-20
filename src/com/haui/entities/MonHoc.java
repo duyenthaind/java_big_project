@@ -5,8 +5,9 @@
  */
 package com.haui.entities;
 
+import java.util.Objects;
+
 /**
- *
  * @author duyenthai
  */
 public class MonHoc {
@@ -61,4 +62,16 @@ public class MonHoc {
         return "MonHoc{" + "maMH=" + maMH + ", tenMH=" + tenMH + ", soTinChi=" + soTinChi + ", maKhoa=" + maKhoa + '}';
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        MonHoc monHoc = (MonHoc) o;
+        return maMH.equals(monHoc.maMH) && maKhoa.equals(monHoc.maKhoa);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(maMH, maKhoa);
+    }
 }

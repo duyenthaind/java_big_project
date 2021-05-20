@@ -80,7 +80,8 @@ public class ReportDAO {
             this.mapSubject = getMapSubjectResults();
             this.listResults = getFinalResults();
             if (mapSubject != null && mapSubject.size() > 0) {
-                int sum = mapSubject.values().stream().map(x -> x.getSoTinChi()).reduce(0, (a, b) -> a + b);
+                Set<MonHoc> set = new HashSet<>(mapSubject.values());
+                int sum = set.stream().map(x -> x.getSoTinChi()).reduce(0, (a, b) -> a + b);
                 totalCredits = sum;
             }
             if (totalCredits > 0) {
