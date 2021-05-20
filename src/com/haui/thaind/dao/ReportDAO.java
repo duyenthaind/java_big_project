@@ -196,7 +196,7 @@ public class ReportDAO {
 
     private void closeConnection(Connection connection){
         try{
-            if(this.connection != null){
+            if(connection != null){
                 connection.close();
             }
         } catch(Exception ex){

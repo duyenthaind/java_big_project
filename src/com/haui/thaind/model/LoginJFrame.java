@@ -19,9 +19,6 @@ import java.util.Date;
  */
 public class LoginJFrame extends javax.swing.JFrame {
 
-    private DerbyUtil derbyUtil = new DerbyUtil.Builder().build();
-    private Connection connection = derbyUtil.getConnection();
-
     /**
      * Creates new form LoginJFrame
      */
@@ -162,8 +159,9 @@ public class LoginJFrame extends javax.swing.JFrame {
 
     private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {
         LoginDAO dao = new LoginDAO();
+        Connection connection = new DerbyUtil.Builder().build().getConnection();
         boolean isOk = dao.isExist(jtfUserId.getText(), jpfPassword.getText(), connection);
-        System.out.println(jpfPassword.getText());
+//        System.out.println(jpfPassword.getText());
         if (isOk) {
 //            UserManager.init(jtfUserId.getText());
             System.out.println("Login ok, userId: " + jtfUserId.getText() + " is online!");

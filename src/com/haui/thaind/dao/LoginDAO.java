@@ -2,6 +2,7 @@ package com.haui.thaind.dao;
 
 import com.haui.thaind.cache.UserManager;
 
+import javax.swing.*;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -40,6 +41,16 @@ public class LoginDAO implements SimpleDAO {
         } catch (Exception ex) {
             System.err.println("Error check account, trace: " + ex);
             ex.printStackTrace();
+        } finally{
+            if(connection != null){
+                try{
+                    connection.close();
+                } catch (Exception ex){
+                    JOptionPane.showMessageDialog(null, "Error: Close connection error, see logs for more details!", "Error", JOptionPane.ERROR_MESSAGE);
+                    System.err.println("Close connection error, trace: " + ex);
+                    ex.printStackTrace();
+                }
+            }
         }
         return false;
     }
