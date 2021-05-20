@@ -67,11 +67,11 @@ public class MonHoc {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         MonHoc monHoc = (MonHoc) o;
-        return maMH.equals(monHoc.maMH) && maKhoa.equals(monHoc.maKhoa);
+        return maMH.equals(monHoc.maMH);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(maMH, maKhoa);
+        return Objects.hash(maMH);
     }
 }
