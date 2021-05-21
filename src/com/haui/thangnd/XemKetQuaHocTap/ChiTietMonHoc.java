@@ -24,11 +24,9 @@ import javax.swing.table.DefaultTableModel;
 public class ChiTietMonHoc extends javax.swing.JFrame {
     ResultSet rs = null;
     Connect con = new Connect();
-    DefaultTableModel defaultTableModel ;
     String maMH;
     String maHP;
     ArrayList<HocPhan> al_hocPhan = new ArrayList<HocPhan>();
-    private static SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
     /**
      * Creates new form ChiTietMonHoc
      */
@@ -43,50 +41,30 @@ public class ChiTietMonHoc extends javax.swing.JFrame {
         loadTable();
     }
     public void loadTable() {
+        System.out.println("V !" + maHP);
         try {
             con.getConnect();
-            jTable1.removeAll();
-            String[] name = {"STT", "Mã HP", "Mã MH", "Mã GV", "NGAY BD", "Ngày KT", "Số Tiết Học", "Thời Gian Học", "Học Phí"};
-            defaultTableModel = new DefaultTableModel(name, 0);
-            int sd = 1;
             String query = "Select * from HOCPHAN";
             rs = con.executeQuery(query);
             while (rs.next()) {
+                if (rs.getString("MAMH").compareTo(maMH) == 0 && rs.getString("MAHP").compareTo(maHP) == 0) {
                     HocPhan hocPhan = new HocPhan();
                     hocPhan.setMaHP(rs.getString("MAHP"));
                     hocPhan.setMaMH(rs.getString("MAMH"));
                     hocPhan.setMaGV(rs.getString("MAGV"));
                     hocPhan.setNgayBD(rs.getLong("NGAYBD"));
-                    hocPhan.setHocPhi(rs.getLong("NGAYKT"));
+                    hocPhan.setNgayKT(rs.getLong("NGAYKT"));
                     hocPhan.setSoTietHoc(rs.getInt("SOTIETHOC"));
                     hocPhan.setThoiGianHoc(rs.getString("THOIGIANHOC"));
                     hocPhan.setHocPhi(rs.getFloat("HOCPHI"));
-                al_hocPhan.add(hocPhan);
-            }
-            for (HocPhan b : al_hocPhan) {
-                if (b.getMaHP().compareToIgnoreCase(maHP) == 0 && b.getMaMH().compareToIgnoreCase(maMH) == 0) {
-                    defaultTableModel.addRow(new Object[]{defaultTableModel.getRowCount() + 1,
-                    b.getMaHP(),
-                    b.getMaMH(),
-                    b.getMaGV(),
-                    getDay(b.getNgayBD()),
-                    getDay(b.getNgayKT()),
-                    b.getSoTietHoc(),
-                    b.getThoiGianHoc(),
-                    b.getHocPhi()});
+                    al_hocPhan.add(hocPhan);
                 }
             }
-            jTable1.setModel(defaultTableModel);
-//            jtb_DSDiemTrungBinhTichLuy.setModel(defaultTableModel);
+            jTable1.setModel(new TableChiTietMonHoc(al_hocPhan));
+            con.closeConnect();
         } catch (Exception ex) {
             Logger.getLogger(XemDiemTongKet.class.getName()).log(Level.SEVERE, "Error", ex);
         }
-    }
-    private static String getDay(long day)
-    {
-        Date d;
-        d = Date.from(Instant.ofEpochSecond(day));
-        return sdf.format(d);
     }
     /**
      * This method is called from within the constructor to initialize the form.
