@@ -6,7 +6,6 @@
 package com.haui.thangnd.XemKetQuaHocTap;
 
 import com.haui.thaind.cache.UserManager;
-import com.sun.istack.internal.localization.NullLocalizable;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
